@@ -46,8 +46,66 @@
 
 \section*{2.4)}
 
+\subsection*{a)}
+Den fotoelektriske effektien beskriver fenomenet hvor fotoner slår elektroner ut av atomer, og dermed kan skape en strøm. På slutten av 1800-tallet mente man at lys var bølger som kunne ha kontinuelig energi. Men eksperimenter \ref{fig::fotoele} vise at energien til elektronene ikke var avhengig av intensiteten til lyset, noe man kan forvente fra kontinuelig energi. Høyere intensitet økte strømmen produsert av elektronene, men det viste seg at det var en øvre grense for energien til elektronet, og denne grensen var helt uavhengig av intensiteten til lyset. Når man så på $K_{max}$ som en funksjon av frekvensen til lyset, fant man en klar lineær sammenheng, som sa at energien til et foton kunne skrives som:
 
-\subsubsection*{d)}\label{subsec::overforingAvAllEnergi}
+$$
+E = h\nu
+$$
+
+Man kunne da tenke på fotoner som partikler, og ikke lenger som bølger. Det eneste høyere intensitet gjorde var å sende flere av disse partiklene som løsnet flere elektroner, men de hadde ikke mer kinetisk energi.\\
+
+Det var en av de største skrittene mot kvantefysikken.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{fotoel.png}
+\caption{Viser oppsettet til eksperimentet for å vise den fotoelektriske effekten.}\label{fig::fotoele}
+\end{figure}
+
+\subsection*{b)}
+Grafen viser strømmen som en funksjon av spenning fra spenningskilden. Når spenningen er over 1V vil alle de løsrevede elektonene nå anoden. Så selv om man tilsetter mer spenning, så ikke det øke spenningen siden alle elektronene allerede har nok energi. Senker man spenningen vil ikke lenger alle elektronene ha nok kinetisk energi til å nå anoden, og strømmen vil synke. Selv om spenningen er under null vil noen av elektronene nå anoden. Men ved en $-V_0$ vil plutselig ingen elektronen nå anoden, selv ikke de elektronene som hadde høyest energi. Denne grensen er uavhengig av intensiteten til lyset. Ette viser at elektronene har en høyest mulig energi $K_{max}$ som er uavhengig av intensiteten til lyset.\\
+
+Som nevt over vil ikke $-V_0$ ender seg selv om man dobler intensiteten til lyset. Men etter dette punket vil grafen ligge over grafen for den initielle intensiteten, m.a.o blir det mer strøm i kretsen. Dette er fordi høyere intensitet gir flere fotoner, som igjen river flere elektroner løs. Disse elektronene har ikke noe høyere kinetisk energi, men siden det er flere av dem vil man få høyere strøm.
+
+\subsection*{c)}
+Vi vet at for lyset brukt for dette plottet er $\lambda = 2.57 \cdot 10^{-7}$m. Vi vet også at $K_{max} = eV_0 = -0.6$eV. Arbeidsfunksjonen $\omega_0$ er energien som trenges for å rive et elektron vekk fra atomet, og vi kan finne den fra 
+
+$$
+K_{max} = h\nu - \omega_0
+$$
+$$
+\omega_0 = h\nu - K_{max}
+$$
+
+Setter vi inn de kjente verdiene finner vi at $\omega_0 = 5.42 \mathrm{eV} = 8.7 \cdot 10^{-19}$J
+
+\subsection*{d)}
+Med dataen tabell 2 i kompendiumet kan vi finne arbeidsfunksjonen. Vi kan plotte $\nu = \frac{c}{\lambda}$ mot $K_{max} = eV_0$ 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{kmaxnu.png}
+\caption{Vi kan se at plottet $\nu$ mot $K_{max}$ gir en lineær funksjon.}
+\end{figure}
+
+Ved lineær regresjon finner vi at dette følger:
+
+$$
+K_{max} = 6.50458\cdot 10^{-34} \nu - 4.58918\cdot 10^{-19}
+$$
+
+Det betyr at arbeidsfunksjonen hvor elektronet blir revet løs fra atomet er $\omega_0 = 4.58918\cdot 10^{-19} $J. Vi vet at
+
+$$
+K_{max} = h\nu - \omega_0
+$$
+
+Som betyr at vi kan finne Planks konstant $h$ ved å se på stigningstallet. Vi finner da at $h = 6.50458\cdot 10^{-34} \mathrm{m}^2 \mathrm{kg}/\mathrm{s}$.
+
+\subsubsection*{e)}\label{subsec::overforingAvAllEnergi}
 For å finne ut om et foton kan overføre all energien sin til et elektron, må vi se på bevaring av bevelgelsesmengde og energi. Vi velger et referansepunkt hvor elektronet ikke har noe bevegelsesmengde før sammenstøtet. Fotonet forvinner også etter sammenstøtet og har da verken energi eller bevegelsesmengde. Vi får da at bevegelsesmengdene er:
 
 $$
@@ -248,6 +306,145 @@ For at dette skal stemme må $\lambda = \lambda'$. M.a.o. er $\Delta \lambda = 0
 
 \subsection*{d)}
 Se oppgave 2.4d \ref{subsec::overforingAvAllEnergi}
+
+
+\section*{3.2}
+\subsection*{a)}
+For å finne spinnet til H-systemet må vi først se på massesenteret til systemet. Det er definert som:
+
+$$
+\vec{R} = \frac{m_e}{M}\vec{r_e} + \frac{m_p}{M}\vec{r_p}
+$$
+
+Hvor $\vec{r_p}$ og $m_p$ er posisjonen og massen til protonet, $\vec{r_e}$ og $m_e$ er det tilsvarende for elektronet, og $M = m_e + m_p$. Siden vi ikke har noen ekterne krefter kan vi velge at massesenteret er i origo, så
+
+$$
+ \frac{m_e}{M}\vec{r_e} + \frac{m_p}{M}\vec{r_p} = 0
+$$
+
+Avstanden mellom protonet og elektronet er gitt som
+
+$$
+\vec{r} = \vec{r_e} - \vec{r_p}
+$$
+
+Vi kan skrive om posisjonen til elektronet og sette det inn i formelen over:
+
+$$
+\vec{r} = -\frac{m_p}{m_e}\vec{r_p} - \vec{r_p} = .\frac{m_p + m_e}{m_e}\vec{r_p}
+$$ 
+
+Vi skriver om, tar lengden av vektorene og setter at $\mu = \frac{m_em_p}{m_e+m_p}$:
+
+\begin{equation}
+r_pm_p = -\mu r
+\end{equation}\label{eq::rpmp}
+
+og tilsvarende for elektronet:
+\begin{equation}
+r_em_e = \mu r
+\end{equation}\label{eq::reme}
+
+Vi kan nå bruke formelen for det totale utrykket:
+
+$$
+L = \sum_i r_ip_i = r_em_e\frac{dr_e}{t} + r_pm_p\frac{dr_p}{dt}
+$$
+Bruker vi \ref{eq::rpmp} og \ref{eq::reme} får vi at:
+
+$$
+L = r_e\mu \frac{dr}{dt} - r_p \mu \frac{dr}{dt} = (r_e -  r_p)\mu v
+$$
+
+Bruker vi nå at $r_e - r_p = r$ og at $v = r\omega$ får vi at
+
+$$
+L = r^2 \mu \omega
+$$
+
+\subsection*{b)}
+Bohr brukte mekanisk likevekt og kvantisering av spin til å finne energien til hydrogenatomet. Vi ønsker å bruke det nye uttrykket for spin for å finne en mer nøyaktig formel for energien. Kvantiseringen av spin sier at:
+
+$$
+L = r^2\mu \omega = r\mu v = n\hbar
+$$
+
+Som gir os at
+
+\begin{equation}
+v^2 = \left(\frac{n\hbar}{r\mu}\right)^2
+\end{equation}\label{eq::v2}
+
+Så trenger vi energien for et elektron i bane rundt et proton. Det er gitt ved:
+
+\begin{equation}
+E = -\frac{ke^2}{r} + \frac{1}{2}\mu v^2 = -\frac{ke^2}{r} + \frac{ke^2}{2r} = -\frac{ke^2}{2r}
+\end{equation}\label{eq::E}
+
+Vi bruker så mekanisk likevekt som sier at:
+
+\begin{equation}
+\frac{ke^2}{2r} = \frac{1}{2}\mu v^2
+\end{equation}\label{likevekt}
+
+Bytter vi ut $v^2$ med \ref{eq::v2} får vi at:
+
+$$
+\frac{ke^2}{2r} = \frac{1}{2}\mu \left(\frac{n\hbar}{r\mu}\right)^2
+$$
+\begin{equation}
+r(n) = \frac{\hbar^2}{\mu ke^2}n^2
+\end{equation}\label{r}
+
+Setter vi dette inn i uttrykket for energien \ref{eq::E} ender vi med at:
+
+$$
+E = -\frac{\mu e^4k^2}{2\hbar e^2}\frac{1}{n^2}
+$$
+
+Bohr anta også at energien elektronene strålte ut i form av fotoner når de gikk mellom orbitaler var gitt ved:
+
+$$
+h\nu = E_i - E_f
+$$
+
+Vi setter inn utrykket for energi og finner at:
+
+$$
+h\nu = \frac{\mu e^4k^2}{2\hbar^2}\left(\frac{1}{n_f^2}-\frac{1}{n_i^2}\right)
+$$
+
+Siden $\nu = \frac{c}{\lambda}$ ender vi opp med den modifiserte formelen til Bohr:
+
+\begin{equation}
+\frac{1}{\lambda} = \frac{\mu e^4k^2}{2\hbar^2hc}\left(\frac{1}{n_f^2}-\frac{1}{n_i^2}\right)
+\end{equation}\label{eq::enoverlambda}
+
+Vi ser at den eneste forskjellen er at vi har $\mu$ istedenfor $m_e$
+
+\subsection*{c)}
+I følge Bohrs formel er bølgelengden fra $n_i = 3$ til $n_f = 2$ i Balmer-serien 656.11 nm. I den nye formelen blir det:
+
+$$
+\frac{\mu e^4k^2}{2\hbar^2hc}\left(\frac{1}{2^2}-\frac{1}{3^2}\right) = \frac{1}{656.47 nm}
+$$
+
+Vi har altså med den nye formelen 656.47 nm, alså en forskjell på 0.36 nm, hvilket er en veldig liten forskjell.
+
+\subsection*{d)}
+Vi vet nå at $H_{\alpha} = 656.029$ nm for deuterium. For å finne massen på kjernen løser vi \ref{eq::enoverlambda} for $\mu$
+
+$$
+\mu = \frac{1}{\lambda}\left[\frac{ e^4k^2}{2\hbar^2hc}\left(\frac{1}{n_f^2}-\frac{1}{n_i^2}\right)\right]^{-1}
+$$
+
+Vi får da at $\mu = 4.723 \cdot 10^{-6} kg$. Vi vet at $\mu = \frac{m_pm_e}{m_p + m_e}$. Vi løser dette for $m_p$, som her tilsvarer massen må kjernen:
+
+$$
+m_p = \frac{m_e\mu}{m_e-\mu} 
+$$
+
+Jeg har prøvd og prøvd å regne dette ut, men tallene er under maskinpresisjon, så den metoden jeg har prøvd å finne det på virker ikke til å fungere...
 
 
 \end{document}
