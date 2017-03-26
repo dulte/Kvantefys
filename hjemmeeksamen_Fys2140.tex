@@ -47,6 +47,365 @@
 \maketitle
 
 \section{Oppgave 1)}
+\subsection*{a)}
+Vi ønsker å se på et system med et dobbelt $\delta$-potensial. I én dimensjon er Schrödinger likningen:
+
+$$
+-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x)}{\partial x^2} + V(x)\psi(x) = E\psi(x)
+$$
+
+Vi ønsker å operere i natrulige enheter, så vi setter $\hbar = m = 1$. Som nevt skal vi se på et dobbelt $\delta$-potensial, symmetrisk om origo, og med $\delta$-funksjoner i $\pm q_0$. Dette potensialet er gitt ved:
+
+$$
+V(x) = V_0\delta(x+q_0) + V_0\delta(x-q_0)
+$$
+
+Dette gir oss en Schrödinger likning som ser slik ut:
+
+\begin{equation}
+-\frac{1}{2}\frac{\partial^2 \psi(x)}{\partial x^2} + \left[V_0\delta(x+q_0) + V_0\delta(x-q_0)\right]\psi(x) = E\psi(x)
+\label{eq:deltaSchr}
+\end{equation}
+
+Vi er interessert i å se på de ubunnede tilstandene, dette betyr at $E>0$. Generelt gir dette løsningen:
+
+$$
+\psi(x) = 
+\begin{cases}
+Ae^{ikx} + Be^{-ikx} & x< -q_0 \\
+Ce^{ikx} + De^{-ikx} & -q_0x< q_0 \\
+Fe^{ikx} + Ge^{-ikx} & x>q_0 
+\end{cases}
+$$
+
+Hvor $k = \sqrt{2E}$. Vi ønsker at løsningen er en bølge som kommer fra venstre. Ser vi på den nederst linjen, så er dette bølgefunksjonen på høyre siden av potensialet. $Fe^{ikx}$ tilsvarer bølgen som beveger seg på høyre, og $Ge^{-ikx}$ er bølgen som beveger seg mot venstre. Men bølgen skal komme bare fra venstre, som betyr at det som kommer seg igjennom potensialet må bevege seg mot høyre. Dette betyr at $G = 0$. Vi får da
+
+\begin{equation}
+\psi(x) = 
+\begin{cases}
+Ae^{ikx} + Be^{-ikx} & x< -q_0 \\
+Ce^{ikx} + De^{-ikx} & -q_0x< q_0 \\
+Fe^{ikx} & x>q_0 
+\end{cases}
+\label{eq:psi}
+\end{equation}
+
+Vi skriver også opp de deriverte av bølgefunksjonen:
+
+\begin{equation}
+\psi'(x) = 
+\begin{cases}
+ikAe^{ikx} - ikBe^{-ikx} & x< -q_0 \\
+ikCe^{ikx} -ikDe^{-ikx} & -q_0x< q_0 \\
+ikFe^{ikx} & x>q_0 
+\end{cases}
+\label{eq:psiDer}
+\end{equation}
+
+Vi må nå finne de fem variablene A,B,C,D og F. Får å gjøre dette, bruker vi:
+
+\begin{itemize}
+\item Bølgefunksjonen er kontinuelig i $\pm q_0$
+\item Den deriverte $\psi'$ er diskontimuelig i $\pm q_0$
+\end{itemize}
+
+Først ønsker jeg å finne hva denne diskontinuteten er. Vi ser først på $-q_0$. Vi integrerer \ref{eq:2dSch} fra $-q_0 - \epsilon$ til $-q_0 + \epsilon$:
+
+$$
+-\frac{1}{2}\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\frac{\partial^2 \psi(x)}{\partial x^2}dx + \int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\left[V_0\delta(x+q_0) + V_0\delta(x-q_0)\right]\psi(x)dx = E\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\psi(x) dx
+$$
+
+Vi kan nå se på leddene. Når $\epsilon \rightarrow 0$ så vil 
+
+$$E\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\psi(x) dx = 0$$
+
+Første leddet blir $\frac{\partial \psi}{\partial x}$ men evaluert i grensene. Når $\epsilon \rightarrow 0$ blir dette diskontinuliteten vi er ute etter:
+
+$$
+-\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\frac{\partial^2 \psi(x)}{\partial x^2}dx = -\lim_{\epsilon \rightarrow 0}\left(\frac{\partial \psi}{\partial x}\right)\bigg|_{-q_0 - \epsilon}^{-q_0 + \epsilon} = -\Delta \left(\frac{\partial \psi}{\partial x}\right)_{-q_0}
+$$
+
+Vi ser da at
+
+\begin{equation}
+\Delta \left(\frac{\partial \psi}{\partial x}\right)_{-q_0} = 2\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\left[V_0\delta(x+q_0) + V_0\delta(x-q_0)\right]\psi(x)dx = 2V_0\psi(-q_0)
+\label{eq:deltapsi-q0}
+\end{equation}
+
+Og tilsvarende
+
+\begin{equation}
+\Delta \left(\frac{\partial \psi}{\partial x}\right)_{q_0} = 2V_0\psi(q_0)
+\end{equation}
+
+
+
+Vi kan nå starte å sette opp likningssystemet:\\
+
+\textbf{Kontinuitet i $-q_0$}: 
+Vi får da at 
+
+$$
+Ae^{-ikq_0} + Be^{ikq_0} = Ce^{-ikq_0} + De^{ikq_0}
+$$
+
+Vi innfører nå variablen $\alpha = e^{-2ikq_0}$, og får:
+
+$$
+A\alpha + B =C\alpha + D
+$$
+
+\textbf{Kontinuitet i $q_0$}: 
+Vi får her at:
+
+$$
+Ce^{ikq_0} + De^{-ikq_0} = Fe^{ikq_0} 
+$$
+$$
+\Rightarrow C + D\alpha = F
+$$
+
+\textbf{Diskontinuitet for $\psi'$ i $-q_0$}:
+
+Vi får her at
+
+$$
+\Delta \left(\frac{\partial \psi}{\partial x}\right)_{-q_0} = (ikCe^{-ikq_0} -ikDe^{ikq_0} ) - (ikAe^{-ikq_0} - ikBe^{ikq_0}) = 2V_0\psi(-q_0) 
+$$
+$$
+= 2V_0(Ae^{-ikq_0} + Be^{ikq_0})
+$$
+$$
+\Rightarrow ik(C\alpha - D -A\alpha + B) = 2V_0(A\alpha + B)
+$$
+
+Vi innfører så en ny variablel $\omega = \frac{2V_0}{ik}$ og får:
+
+$$
+\Rightarrow C\alpha - D -A\alpha + B = \omega(A\alpha + B)
+$$
+
+\textbf{Diskontinuitet for $\psi'$ i $q_0$}:
+Vi får her:
+
+$$
+\Delta \left(\frac{\partial \psi}{\partial x}\right)_{q_0} = ikFe^{ikq_0} - (ikCe^{ikq_0} -ikDe^{-ikq_0}) = 2V_0\psi(q_0)
+$$
+$$
+= 2V_0Fe^{ikq_0}
+$$
+$$
+\Rightarrow F - C + D\alpha = \omega F 
+$$\\
+
+
+Vi sitter da med de fire likningene for de fem ukjente:
+
+\begin{enumerate}
+\item $A\alpha + B = C\alpha + D$
+\item $C + D\alpha = F$
+\item $C\alpha - D -A\alpha + B = \omega(A\alpha + B)$
+\item $F - C + D\alpha = \omega F $
+\end{enumerate}
+
+Hvor $\alpha = e^{-2ikq_0}$ og $\omega = \frac{2V_0}{ik}$.\\
+
+Det er fult mulig å løse dette analytisk, men etter mange forsøk og mange blindveier så ble jeg inspirert av noen andre til bare å løse dette ved hjep av \textit{sympy}, en symbolsk løser for python.Koden finnes her\ref{lst:solver}. Den ga dette resultatet:
+
+$$
+F = \frac{4A\alpha^2}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
+$$
+$$
+B = \frac{A\alpha\omega(2+\omega +2\alpha^2 - \alpha^2\omega)}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
+$$
+$$
+C = \frac{-2A\alpha^2(\omega - 2)}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
+$$
+$$
+D = \frac{2A\alpha\omega}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
+$$
+
+Setter vi inn for $\alpha$ og $\omega$ og rydder litt, finner vi:
+
+$$
+F = \frac{4Ae^{-4ikq_0}}{-\frac{4V_0^2}{k^2}e^{-4ikq_0} + \frac{8iV_0}{k}e^{-4ikq_0} + 4e^{-4ikq_0} + \frac{4V_0^2}{k^2}}
+$$
+$$
+= \frac{4Ae^{-4ikq_0}}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}\frac{1}{\frac{4e^{-4ikq_0}}{k^2}}
+$$
+
+\begin{equation}
+= \frac{Ak^2}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
+\label{eq:F}
+\end{equation}
+
+Og for de resterende:
+
+\begin{equation}
+B = -\frac{AV_0\left(V_0e^{2ikq_0} - V_0e^{-2ikq_0} + ike^{2ikq_0} + ike^{-2ikq_0}\right)}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
+\label{eq:B}
+\end{equation}
+
+\begin{equation}
+C = \frac{Ak(iV_0 + k)}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
+\label{eq:C}
+\end{equation}
+
+\begin{equation}
+D = \frac{-AikV_0e^{2ikq_0}}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
+\label{eq:D}
+\end{equation}
+
+Setter vi nå disse inn i \ref{eq:psi} får vi spredningstilstandene:
+
+\begin{equation}
+\psi(x) =
+\begin{cases}
+Ae^{ikx} -\frac{AV_0\left(V_0e^{2ikq_0} - V_0e^{-2ikq_0} + ike^{2ikq_0} + ike^{-2ikq_0}\right)}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}e^{-ikx} & x< -q_0 \\
+\frac{Ak(iV_0 + k)e^{ikx} -AikV_0e^{2ikq_0}e^{-ikx}}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2} & -q_0x< q_0 \\
+\frac{Ak^2}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}e^{ikx} & x>q_0 
+\end{cases}
+\end{equation}
+
+Jeg er ganske sikker på at det finnes måter å forenkle dette på. Siden \textit{sympy} ikke er like flink som mennesker til å rydde opp i uttrykk, så blir det ganske rotete. Men det skal være riktig.
+
+
+\subsection*{b)}
+
+Vi kan nå begynne å se på hvor mye som blir reflektert, og hvor mye som blir transmittert. Vi skal først se på hvor mye som blir reflektert av $\delta$-funksjonen i $x = -q_0$. Vi er interessert i hva som er sjansen for at bølgen blir reflektert. Dette kan vi gjøre med refleksjonskoeffisienten:
+
+\begin{equation}
+R = \frac{|B|^2}{|A|^2}
+\label{eq:refleks}
+\end{equation}
+
+Vi kan regne dette ut:
+
+$$
+R = \frac{|B|^2}{|A|^2} = \bigg|\frac{V_0\left(V_0e^{2ikq_0} - V_0e^{-2ikq_0} + ike^{2ikq_0} + ike^{-2ikq_0}\right)}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}\bigg|^2
+$$
+
+Bruker vi sympy, wolframalpha eller liknende til å regne ut dette finner vi at 
+
+$$
+R = \frac{V_0\left(k\cos(2kq_0) + V_0\sin(2kq_0)\right)^2}{4kV_0^3\sin(4kq_0) + 2V_0^2\cos(4kq_0)(k^2 - V_0^2)+k^4 +2k^2V_0^2 + 2V_0^4}
+$$
+
+Vi kan sette inn $k = \sqrt{2E}$ for å finne den endelige sannsyligheten som en funksjon av $E$, $q_0$ og $V_0$:
+
+$$
+R(E,q_0,V_0) = \frac{V_0\left(\sqrt{2E}\cos(2\sqrt{E}q_0) + V_0\sin(2\sqrt{2E} q_0)\right)^2}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
+$$
+
+Vi ønsker så å gjøre det tilsvarende for transmisjonen gjennom det høyre potensialet. Dette måler sannsynligheten for at bølgen har gått igjennom hele potensialet for forsvinner mot høyre. Dette kan regnes ut som følger:
+
+\begin{equation}
+T = \frac{|F|^2}{|A|^2}
+\label{eq:transmit}
+\end{equation}
+
+Jeg brukte akkurat samme metode som jeg brukte for refleksjonsmetoden (symbolske løsere):
+
+$$
+T = \bigg|\frac{k^2}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}\bigg| 
+$$
+$$
+= \frac{k^4}{(2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2)(-2iV_0k + k^2 +V_0^2e^{-4ikq_0} - V_0^2)}
+$$
+$$
+ = \frac{k^4}{4kV_0^3\sin(4kq_0) + 2V_0^2\cos(4kq_0)(k^2 - V_0^2)+k^4 +2k^2V_0^2 + 2V_0^4}
+$$
+
+Setter vi så inn $k = \sqrt{2E}$ finner vi transmisjonssannsynligheten som
+
+\begin{equation}
+T(E,q_0,V_0) = \frac{k^4}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
+\end{equation} 
+
+Som en test på at det ikke er feil,så kan vi observere at enten må bølgen reflekteres eller så må den komme ut på andre siden. Dette betyr at 
+
+$$
+T + R \overset{!}{=} 1
+$$
+
+
+Vi kan sjekke dette:
+
+$$
+T + R = \frac{V_0\left(\sqrt{2E}\cos(2\sqrt{E}q_0) + V_0\sin(2\sqrt{2E} q_0)\right)^2 + k^4}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
+$$
+
+Sjekker man dette på de symbolske løserne finner vi utrolig nok at:
+
+$$
+V_0\left(\sqrt{2E}\cos(2\sqrt{E}q_0) + V_0\sin(2\sqrt{2E} q_0)\right)^2 + k^4
+$$
+$$
+= 4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4
+$$
+
+Hvilke betyr at
+
+$$
+T + R = \frac{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4} = \underline{\underline{1}}
+$$
+
+Vi har derfor vist at løsningen består en av de viktigste testene for refleksjons- og transmisjonkoeffisientene!
+
+\textit{Merknad: Mye av det jeg har gjort i denne deloppgaven skal være mulig å gjøre analytisk. Men siden jeg løste forrige deloppgave med sympy så fikk jeg svarene på slik en måte at det ble mer eller mindre å løse ting analytisk. Personer som løste 1a analytisk vil nok kunne løse 1b på samme måte. Jeg vet at noen har gjort dette. Men jeg er likevel sikker på at det jeg har skrevet er helt korrekt, bare på en litt mer komplisert form.}
+
+
+\subsection*{c)}
+%Jeg ønsker å forenkle disse likningene litt:\\
+%
+%Jeg starter med å ta $1$ og legge det til $3$, dette gir:
+%
+%$$
+%2B  + C\alpha - D = \omega(A\alpha + B) + C\alpha + D
+%$$ 
+%$$
+%\Rightarrow 2B -2D = \omega(A\alpha + B)
+%$$
+%$$
+%\Rightarrow 2D = (2-\omega)B - \omega \alpha A
+%$$
+%
+%For den neste trekker jeg $1$ fra $3$:
+%
+%$$
+%C\alpha - D - 2A\alpha = \omega(A\alpha + B) - C\alpha - D
+%$$
+%$$
+%\Rightarrow 2C\alpha - 2A\alpha = \omega(A\alpha + B)
+%$$
+%$$
+%\Rightarrow 2C = (\omega +2)A + \frac{\omega}{\alpha} B
+%$$
+%
+%Gjør vi de tilsvarende oprasjonene på $2$ og $4$ får vi to likninger til:
+%
+%$$
+%2D = \frac{\omega}{\alpha}F
+%$$
+%og 
+%$$
+%2C = (2-\omega)F
+%$$
+%
+%Vi har da fire nye versjoner av likningene:
+%
+%\begin{enumerate}
+%\item $2D = (2-\omega)B - \omega \alpha A$
+%\item $2C = (\omega +2)A + \frac{\omega}{\alpha} B$
+%\item $2D = \frac{\omega}{\alpha}F$
+%\item $2C = (2-\omega)F$
+%\end{enumerate}
+%
+
+
+
+
+
 
 \section{Oppgave 2)}
 
@@ -158,7 +517,7 @@ D =
 \end{pmatrix}
 \end{equation}
 
-Dette er en operator som kan brukes på tilstandene til et system som så gir de faktiske målingene. Tilstandene til systemet er gitt som egenvektorene til $D$, mens målingene er gitt som egenverdiene til $D$. Vi bruker Dirac-notasjon, som gjør at dette skrives  som \textit{braketer}:
+Dette er en operator som kan brukes på tilstandene til et system som så gir de faktiske målingene. Tilstandene til systemet er gitt som egenvektorene til $D$, mens målingene er gitt som egenverdiene til $D$. Vi bruker Dirac-notasjon, som gjør at dette skrives  som \textit{keter}:
 
 $$
 \hat{D}|d_{\pm}\rangle = d_{\pm}|d_{\pm}\rangle
@@ -457,7 +816,7 @@ $$
 |c_n|^2 = |\langle f_n|\psi_n\rangle|^2
 $$
 
-(Vi har bare reelle tilstander, så vi kan fjerne $|$ $|$)\\
+(Vi har bare reelle tilstander, så vi kan fjerne $|$ $|$ for alle sannsynligheten, annet enn de for $\Psi(t)$)\\
 
 Sannsynligheten for å måle samme $D$ begge gangene er
 
@@ -483,28 +842,30 @@ $\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2$ er sannsynligheten for at vi 
 $P(d_+)$ er gitt som:
 
 $$
-P(d_+) = \langle d_+|\Psi\rangle^2
+P(d_+) = |\langle d_+|\Psi\rangle|^2
 $$
 
-For får da:
+Vi får da:
 
 $$
-P(d_+ \cap d_+) = \langle d_+|\Psi\rangle^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right]
+P(d_+ \cap d_+) = |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right]
 $$
 
 
 Og helt tilsvarende:
 
 $$
-P(d_- \cap d_-) = \langle d_-|\Psi\rangle^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
+P(d_- \cap d_-) = |\langle d_-|\Psi\rangle|^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
 $$
 
 Vi ender da med at sannsynligheten er:
 
 $$
-P(samme) = \langle d_+|\Psi\rangle^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right] \\
+P(samme) = |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right] \\
+$$
+$$
 +
- \langle d_-|\Psi\rangle^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
+ |\langle d_-|\Psi\rangle|^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
 $$
 
 Vi kan så begynne å regne ut dette beistet. Fra tidligere i oppgaven har vi funnet at:
@@ -540,7 +901,7 @@ $$
 \end{pmatrix}
 $$
 
-I uttrykket for $|\Psi(t)\rangle$ finner vi en stygg tidsavhengighet, som vi håper vil forsvinne. Vi kan så regne ut indreproduktene:
+I uttrykket for $|\Psi(t)\rangle$ finner vi en stygg tidsavhengighet, som vi håper skal forsvinne. Vi kan så regne ut indreproduktene:
 
 $$
 \langle E_0|d_+\rangle^2 = \left(\frac{-1 + \sqrt{2}}{\sqrt{4-2\sqrt{2}}}\right)^2, \qquad \langle E_0|d_-\rangle^2 = \left(\frac{-1 - \sqrt{2}}{\sqrt{4+2\sqrt{2}}}\right)^2
@@ -561,47 +922,53 @@ $$
 Vi regner ikke ut $\langle d_{\pm}|\Psi(t)\rangle$ enda, av grunner vi skal se senere! Vi kan nå regne ut leddene i sannsynligheten:
 
 $$
-P(d_+ \cap d_+) = \langle d_+|\Psi\rangle^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right]
+P(d_+ \cap d_+) = |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right]
 $$
 $$
-= \langle d_+|\Psi\rangle^2\left[\langle E_0|d_+\rangle^2\langle E_0|d_+\rangle^2 + \langle E_1|d_+\rangle^2\langle E_1|d_+\rangle^2\right]
+= |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^2\langle E_0|d_+\rangle^2 + \langle E_1|d_+\rangle^2\langle E_1|d_+\rangle^2\right]
 $$
 $$
-= \langle d_+|\Psi\rangle^2\left[\langle E_0|d_+\rangle^4 + \langle E_1|d_+\rangle^4\right]
+= |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^4 + \langle E_1|d_+\rangle^4\right]
 $$
 $$
-= \langle d_+|\Psi\rangle^2\left[\left(\frac{-1+\sqrt{2}}{\sqrt{4-2\sqrt{2}}}\right)^4 + \left(\frac{-1-\sqrt{2}}{\sqrt{4+2\sqrt{2}}}\right)^4\right]
+= |\langle d_+|\Psi\rangle|^2\left[\left(\frac{-1+\sqrt{2}}{\sqrt{4-2\sqrt{2}}}\right)^4 + \left(\frac{-1-\sqrt{2}}{\sqrt{4+2\sqrt{2}}}\right)^4\right]
 $$
 $$
-= \frac{3}{4}\langle d_+|\Psi\rangle^2
+= \frac{3}{4}|\langle d_+|\Psi\rangle|^2
 $$
 
 Og tilsvarende:
 
 $$
-P(d_- \cap d_-) = \langle d_-|\Psi\rangle^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
+P(d_- \cap d_-) = |\langle d_-|\Psi\rangle|^2\left[\langle E_0|d_-\rangle^2\langle d_-|E_0\rangle^2 + \langle E_1|d_-\rangle^2\langle d_-|E_1\rangle^2\right]
 $$
 $$
-= \langle d_-|\Psi\rangle^2\left[\langle E_0|d_-\rangle^4 + \langle E_1|d_-\rangle^4\right]
+= |\langle d_-|\Psi\rangle|^2\left[\langle E_0|d_-\rangle^4 + \langle E_1|d_-\rangle^4\right]
 $$
 $$
-= \langle d_-|\Psi\rangle^2\left[ \left(\frac{1}{4-2\sqrt{2}}\right)^2 + \left(\frac{1}{4+2\sqrt{2}}\right)^2\right]
+= |\langle d_-|\Psi\rangle|^2\left[ \left(\frac{1}{4-2\sqrt{2}}\right)^2 + \left(\frac{1}{4+2\sqrt{2}}\right)^2\right]
 $$
 $$
-= \frac{3}{4}\langle d_-|\Psi\rangle^2
+= \frac{3}{4}|\langle d_-|\Psi\rangle|^2
 $$
 
-Og her skjedde det noe utrolig vakkert! Sannsynligheten for at man ved første måling enten finner $d_+$ eller $d_-$ må være $1$. Dette vil si at $\langle d_+|\Psi\rangle^2 + \langle d_-|\Psi\rangle^2 = 1$. Så nå ser vi at:
+Og her skjedde det noe utrolig vakkert! Sannsynligheten for at man ved første måling enten finner $d_+$ eller $d_-$ må være $1$. Dette vil si at $|\langle d_+|\Psi\rangle|^2 + |\langle d_-|\Psi\rangle|^2 = 1$. Så nå ser vi at:
 
 \begin{equation}
-P(samme) = P(d_+ \cap d_+) + P(d_- \cap d_-) = \frac{3}{4}\left(\langle d_+|\Psi\rangle^2 + \langle d_-|\Psi\rangle^2\right) = \underline{\underline{\frac{3}{4}}}
+P(samme) = P(d_+ \cap d_+) + P(d_- \cap d_-) = \frac{3}{4}\left(|\langle d_+|\Psi\rangle|^2 + |\langle d_-|\Psi\rangle|^2\right) = \underline{\underline{\frac{3}{4}}}
 \end{equation}
 
-Siden all tidsavhengighet lå i $\langle d_+|\Psi\rangle$ og $\langle d_-|\Psi\rangle$, og disse forsvant, så betyr det at tidsavhengigheten til sannsynligheten for å finne samme måling begge gangene!\\
+Siden all tidsavhengighet lå i $\langle d_+|\Psi\rangle$ og $\langle d_-|\Psi\rangle$, og disse forsvant, så betyr det at tidsavhengigheten til sannsynligheten også ble borte, og det er til en hver tid like sannsynlig å måle samme måling to ganger på rad!\\
+
 
 Så da har vi funnet at sannsynligheten for å måle samme verdi for $D$ ved to raske målinger er alltid $\underline{\underline{\frac{3}{4}}}$.
 
 
+
+\section{Appendix:}
+\subsection*{Kode for 1a)}
+
+\lstinputlisting{solver.py}\label{lst:solver}
 
 \end{document}
 
