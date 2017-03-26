@@ -89,8 +89,9 @@ Fe^{ikx} & x>q_0
 \end{cases}
 \label{eq:psi}
 \end{equation}
-
+\newpage
 Vi skriver også opp de deriverte av bølgefunksjonen:
+
 
 \begin{equation}
 \psi'(x) = 
@@ -164,6 +165,8 @@ $$
 $$
 \Rightarrow C + D\alpha = F
 $$
+
+\newpage
 
 \textbf{Diskontinuitet for $\psi'$ i $-q_0$}:
 
@@ -319,7 +322,7 @@ $$
 Setter vi så inn $k = \sqrt{2E}$ finner vi transmisjonssannsynligheten som
 
 \begin{equation}
-T(E,q_0,V_0) = \frac{k^4}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
+T(E,q_0,V_0) = \frac{4E^2}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
 \end{equation} 
 
 Som en test på at det ikke er feil,så kan vi observere at enten må bølgen reflekteres eller så må den komme ut på andre siden. Dette betyr at 
@@ -354,57 +357,64 @@ Vi har derfor vist at løsningen består en av de viktigste testene for refleksj
 
 \textit{Merknad: Mye av det jeg har gjort i denne deloppgaven skal være mulig å gjøre analytisk. Men siden jeg løste forrige deloppgave med sympy så fikk jeg svarene på slik en måte at det ble mer eller mindre å løse ting analytisk. Personer som løste 1a analytisk vil nok kunne løse 1b på samme måte. Jeg vet at noen har gjort dette. Men jeg er likevel sikker på at det jeg har skrevet er helt korrekt, bare på en litt mer komplisert form.}
 
-
+\newpage
 \subsection*{c)}
-%Jeg ønsker å forenkle disse likningene litt:\\
-%
-%Jeg starter med å ta $1$ og legge det til $3$, dette gir:
-%
-%$$
-%2B  + C\alpha - D = \omega(A\alpha + B) + C\alpha + D
-%$$ 
-%$$
-%\Rightarrow 2B -2D = \omega(A\alpha + B)
-%$$
-%$$
-%\Rightarrow 2D = (2-\omega)B - \omega \alpha A
-%$$
-%
-%For den neste trekker jeg $1$ fra $3$:
-%
-%$$
-%C\alpha - D - 2A\alpha = \omega(A\alpha + B) - C\alpha - D
-%$$
-%$$
-%\Rightarrow 2C\alpha - 2A\alpha = \omega(A\alpha + B)
-%$$
-%$$
-%\Rightarrow 2C = (\omega +2)A + \frac{\omega}{\alpha} B
-%$$
-%
-%Gjør vi de tilsvarende oprasjonene på $2$ og $4$ får vi to likninger til:
-%
-%$$
-%2D = \frac{\omega}{\alpha}F
-%$$
-%og 
-%$$
-%2C = (2-\omega)F
-%$$
-%
-%Vi har da fire nye versjoner av likningene:
-%
-%\begin{enumerate}
-%\item $2D = (2-\omega)B - \omega \alpha A$
-%\item $2C = (\omega +2)A + \frac{\omega}{\alpha} B$
-%\item $2D = \frac{\omega}{\alpha}F$
-%\item $2C = (2-\omega)F$
-%\end{enumerate}
-%
+
+Merk at jeg var dum og brukte $k = \sqrt{2E}$, for nå som vi skal se på den transmitterte fluksen til et vanlig $\delta$-potensial, brukes allerede $k = \frac{\sqrt{2E}}{V_0}$. Jeg velger derfor her heller å skrive $\kappa = \frac{\sqrt{2E}}{V_0}$. Den transmitterte fluken til ett $\delta$-potensial er derfor gitt som
+
+$$
+T = \frac{\kappa^2}{1 + \kappa^2}
+$$
+
+Vi kan plotte denne transmitterings fluksen mot den for det dobble $\delta$-potensialet:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.3\textwidth}
+\centering
+\includegraphics[width = \textwidth]{TE.png}
+\caption{Den transmitterte fluksen som en funksjon av E}
+\label{fig:TE}
+\end{subfigure}
+~
+\begin{subfigure}{0.3\textwidth}
+\centering
+\includegraphics[width = \textwidth]{TV.png}
+\caption{Den transmitterte fluksen som en funksjon av $V_0$}
+\end{subfigure}
+\end{figure}
 
 
+Vi kan se at det er enkelte steder hvor det transmitteres mer ved et dobbelt potensial enn ved et enkelt. Vi ønsker å se litt nærmere på når dette skjer. La oss ta en liten titt på \ref{fig:TE}. Vi kan se at $T = 1$ for energiene $E \approx 0.67$, $E \approx 3.25$ og $E \approx 8.22$. La oss plotte $|\psi|^2$ for området i mellom $\delta$-funksjonene:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{psi2omr2.png}
+\caption{Vi ser at for disse energiene er bølgene i område $II$ stående bølger med $n+1$ bølgetopper.}
+\end{figure}
+
+Det ser ut som om når den transmitterte fluksen nærmer seg 1, så er det stående bølger i område $II$. Det kan se ut som ved enkelte verdier av $q_0$,$E$ og $V_0$ oppstår disse stående bølgene. Men får da konstruktiv resonnans. Dette kan virke som denne resonnasen forusaker en høyere transmisjonsfluks. Dette er noe som ikke oppstår ved en enkel $\delta$-funksjon, og vi får derfor en høyere transmittert fluks igjennom det doble $\delta$-potensialet.\\
 
 
+Vi kan sjekke hvilke verdier for $q_0$ som gir størst transmisjon for $E = V_0 = 1$. Her blir
+
+$$
+T(q_0) = \frac{4}{4\sqrt{2}\sin(4\sqrt{2} q_0) + 2\cos(4\sqrt{2} q_0)(2 - 1)+4 +4 + 2}
+$$
+
+Den største mulighe transmitterte fluksen er 1, hvilke betyr at:
+
+$$
+4\sqrt{2}\sin(4\sqrt{2} q_0) + 2\cos(4\sqrt{2} q_0)+10 = 4
+$$
+
+Dette gir oss at:
+
+$$
+q_0 = \frac{n\pi - \arctan(\sqrt{2}}{2\sqrt{2}}, \qquad n= 0,1,2,...
+$$
+
+Dette er altså den sperasjonen av $\delta$-funksjonene som gir høyest transmisjon.
 
 
 \section{Oppgave 2)}
@@ -503,6 +513,8 @@ E = E_x +E_y
 $$
 
 Siden vi kan skrive $\psi = X_i(x)Y_j(y)$, hvor $i$ og $j$ er kvantetall assosiert med de harmoniske osillatorene i de 2 retningene, og $E = E_x + E_y$, så betyr det at det er flere konfigurasjoner av disse kvantetallene kan gi samme energi $E$. Dette betyr at dette systemet er \textit{degenerert}.
+
+\newpage
 
 \section{Oppgave 3)}
 
@@ -792,6 +804,7 @@ Og finner det endelig svaret:
 
 \begin{equation}
 \langle D\rangle = \frac{2}{5}\left[2\cos(2(t_D - t_1)) + 1\right]
+\label{eq:forventningD}
 \end{equation}
 
 Vi kan se at forventingsverdien til $D$ osillerer i tid, men en frekvents $f = \frac{\omega}{2\pi} = \frac{2}{2\pi} = \frac{1}{\pi}$. Dette er verdien man forventer fra observablen $D$ om man observerer den gjentatte ganger.
@@ -963,7 +976,13 @@ Siden all tidsavhengighet lå i $\langle d_+|\Psi\rangle$ og $\langle d_-|\Psi\r
 
 Så da har vi funnet at sannsynligheten for å måle samme verdi for $D$ ved to raske målinger er alltid $\underline{\underline{\frac{3}{4}}}$.
 
+\subsection*{d)}
 
+Fungerer maskinen skal vi kunne forvente å måte $\langle D\rangle$ gitt i \ref{eq:forventningD}. Men forventningsverdien til observablen $D$  er avhenging av energiene til $H_1$. Skrur maskinen seg av og systemet går over i regimet til $H_1$, så er tilstandene beskrevet av $|h_{00}\rangle$ og $|h_{01}\rangle$ og deres tilhørende energier $E_{00}$ og $E_{01}$. Dette betyr at forventningsverdien til $D$ ikke lenger er det samme.\\
+
+Men hvordan kan vi faktisk sjekke dette? Merk at i \ref{eq:forventningD} hadde vi et $\cos(2(t_D - t_1)$-ledd. Dette leddet bestemmer hvordan forventningsverdien til $D$ varierer med tiden. Det er faktoren $2$ som bestemmer hvor fort disse verdiene varierer med tiden. Tar man nok målinger vil man kunne observere denne hastigheten. Denne hastigheten er, som nevnt over, bestemt av energiene til $H_1$, så når systemet går over i $H_0$ vil ikke denne hastigheten. Regner man litt på det kan man finne at forventningsverdien nå er avhengig av leddet $\cos(10(t_D - t_1)$. Så med andre ord oscillerer forventningsverdien 5 ganger raskere. Man kan derfor med nok målinger bestemme hvor raskt forventingsverdien oscillerer, og dermed finne om vi er i $H_1$ eller $H_0$, og derfor om maskinen har skrudd seg av.
+
+\newpage
 
 \section{Appendix:}
 \subsection*{Kode for 1a)}
