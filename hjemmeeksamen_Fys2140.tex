@@ -54,7 +54,7 @@ $$
 -\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x)}{\partial x^2} + V(x)\psi(x) = E\psi(x)
 $$
 
-Vi ønsker å operere i natrulige enheter, så vi setter $\hbar = m = 1$. Som nevt skal vi se på et dobbelt $\delta$-potensial, symmetrisk om origo, og med $\delta$-funksjoner i $\pm q_0$. Dette potensialet er gitt ved:
+Vi ønsker å operere i natrulige enheter, så vi setter $\hbar = m = 1$. Som nevnt skal vi se på et dobbelt $\delta$-potensial, symmetrisk om origo, og med $\delta$-funksjoner i $\pm q_0$. Dette potensialet er gitt ved:
 
 $$
 V(x) = V_0\delta(x+q_0) + V_0\delta(x-q_0)
@@ -84,7 +84,7 @@ Hvor $k = \sqrt{2E}$. Vi ønsker at løsningen er en bølge som kommer fra venst
 \psi(x) = 
 \begin{cases}
 Ae^{ikx} + Be^{-ikx} & x< -q_0 \\
-Ce^{ikx} + De^{-ikx} & -q_0x< q_0 \\
+Ce^{ikx} + De^{-ikx} & -q_0 < x< q_0 \\
 Fe^{ikx} & x>q_0 
 \end{cases}
 \label{eq:psi}
@@ -97,7 +97,7 @@ Vi skriver også opp de deriverte av bølgefunksjonen:
 \psi'(x) = 
 \begin{cases}
 ikAe^{ikx} - ikBe^{-ikx} & x< -q_0 \\
-ikCe^{ikx} -ikDe^{-ikx} & -q_0x< q_0 \\
+ikCe^{ikx} -ikDe^{-ikx} & -q_0 < x< q_0 \\
 ikFe^{ikx} & x>q_0 
 \end{cases}
 \label{eq:psiDer}
@@ -110,7 +110,7 @@ Vi må nå finne de fem variablene A,B,C,D og F. Får å gjøre dette, bruker vi
 \item Den deriverte $\psi'$ er diskontimuelig i $\pm q_0$
 \end{itemize}
 
-Først ønsker jeg å finne hva denne diskontinuteten er. Vi ser først på $-q_0$. Vi integrerer \ref{eq:2dSch} fra $-q_0 - \epsilon$ til $-q_0 + \epsilon$:
+Først ønsker jeg å finne hva denne diskontinuteten er. Vi ser først på $-q_0$. Vi integrerer \eqref{eq:2dSch} fra $-q_0 - \epsilon$ til $-q_0 + \epsilon$:
 
 $$
 -\frac{1}{2}\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\frac{\partial^2 \psi(x)}{\partial x^2}dx + \int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\left[V_0\delta(x+q_0) + V_0\delta(x-q_0)\right]\psi(x)dx = E\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\psi(x) dx
@@ -120,7 +120,7 @@ Vi kan nå se på leddene. Når $\epsilon \rightarrow 0$ så vil
 
 $$E\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\psi(x) dx = 0$$
 
-Første leddet blir $\frac{\partial \psi}{\partial x}$ men evaluert i grensene. Når $\epsilon \rightarrow 0$ blir dette diskontinuliteten vi er ute etter:
+Første leddet blir $\frac{\partial \psi}{\partial x}$ men evaluert i grensene $-q_0-\epsilon$ til $-q_0 +\epsilon$. Når $\epsilon \rightarrow 0$ blir dette diskontinuiteten vi er ute etter: 
 
 $$
 -\int_{-q_0 - \epsilon}^{-q_0 + \epsilon}\frac{\partial^2 \psi(x)}{\partial x^2}dx = -\lim_{\epsilon \rightarrow 0}\left(\frac{\partial \psi}{\partial x}\right)\bigg|_{-q_0 - \epsilon}^{-q_0 + \epsilon} = -\Delta \left(\frac{\partial \psi}{\partial x}\right)_{-q_0}
@@ -133,7 +133,7 @@ Vi ser da at
 \label{eq:deltapsi-q0}
 \end{equation}
 
-Og tilsvarende
+Og tilsvarende vil diskontinuiteten i $x = q_0$ gi
 
 \begin{equation}
 \Delta \left(\frac{\partial \psi}{\partial x}\right)_{q_0} = 2V_0\psi(q_0)
@@ -168,9 +168,7 @@ $$
 
 \newpage
 
-\textbf{Diskontinuitet for $\psi'$ i $-q_0$}:
-
-Vi får her at
+\textbf{Diskontinuitet for $\psi'$ i $-q_0$}: Vi får her at
 
 $$
 \Delta \left(\frac{\partial \psi}{\partial x}\right)_{-q_0} = (ikCe^{-ikq_0} -ikDe^{ikq_0} ) - (ikAe^{-ikq_0} - ikBe^{ikq_0}) = 2V_0\psi(-q_0) 
@@ -213,7 +211,7 @@ Vi sitter da med de fire likningene for de fem ukjente:
 
 Hvor $\alpha = e^{-2ikq_0}$ og $\omega = \frac{2V_0}{ik}$.\\
 
-Det er fult mulig å løse dette analytisk, men etter mange forsøk og mange blindveier så ble jeg inspirert av noen andre til bare å løse dette ved hjep av \textit{sympy}, en symbolsk løser for python.Koden finnes her\ref{lst:solver}. Den ga dette resultatet:
+Det er fult mulig å løse dette analytisk, men etter mange forsøk og mange blindveier så ble jeg inspirert av noen andre til bare å løse dette ved hjep av \textit{sympy}, en symbolsk løser for python. Koden finnes her\ref{lst:solver}. Den ga dette resultatet:
 
 $$
 F = \frac{4A\alpha^2}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
@@ -242,7 +240,7 @@ $$
 \label{eq:F}
 \end{equation}
 
-Og for de resterende:
+Og for de resterende uttrykkene:
 
 \begin{equation}
 B = -\frac{AV_0\left(V_0e^{2ikq_0} - V_0e^{-2ikq_0} + ike^{2ikq_0} + ike^{-2ikq_0}\right)}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
@@ -259,7 +257,7 @@ D = \frac{-AikV_0e^{2ikq_0}}{2iV_0k + k^2 +V_0^2e^{4ikq_0} - V_0^2}
 \label{eq:D}
 \end{equation}
 
-Setter vi nå disse inn i \ref{eq:psi} får vi spredningstilstandene:
+Setter vi nå disse inn i \eqref{eq:psi} får vi spredningstilstandene:
 
 \begin{equation}
 \psi(x) =
@@ -275,7 +273,7 @@ Jeg er ganske sikker på at det finnes måter å forenkle dette på. Siden \text
 
 \subsection*{b)}
 
-Vi kan nå begynne å se på hvor mye som blir reflektert, og hvor mye som blir transmittert. Vi skal først se på hvor mye som blir reflektert av $\delta$-funksjonen i $x = -q_0$. Vi er interessert i hva som er sjansen for at bølgen blir reflektert. Dette kan vi gjøre med refleksjonskoeffisienten:
+Vi kan nå begynne å se på hvor mye som blir reflektert, og hvor mye som blir transmittert. Vi skal først se på hvor mye som blir reflektert av $\delta$-funksjonen i $x = -q_0$. Vi er interessert i å se på sannsynligheten for at en innkommende bølge blir reflektert av dette potensialet. Dette kan vi gjøre med refleksjonskoeffisienten:
 
 \begin{equation}
 R = \frac{|B|^2}{|A|^2}
@@ -296,9 +294,11 @@ $$
 
 Vi kan sette inn $k = \sqrt{2E}$ for å finne den endelige sannsyligheten som en funksjon av $E$, $q_0$ og $V_0$:
 
-$$
+\begin{equation}
 R(E,q_0,V_0) = \frac{V_0\left(\sqrt{2E}\cos(2\sqrt{E}q_0) + V_0\sin(2\sqrt{2E} q_0)\right)^2}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
-$$
+\label{eq:R}
+\end{equation}
+
 
 Vi ønsker så å gjøre det tilsvarende for transmisjonen gjennom det høyre potensialet. Dette måler sannsynligheten for at bølgen har gått igjennom hele potensialet for forsvinner mot høyre. Dette kan regnes ut som følger:
 
@@ -323,9 +323,10 @@ Setter vi så inn $k = \sqrt{2E}$ finner vi transmisjonssannsynligheten som
 
 \begin{equation}
 T(E,q_0,V_0) = \frac{4E^2}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
+\label{eq:T}
 \end{equation} 
 
-Som en test på at det ikke er feil,så kan vi observere at enten må bølgen reflekteres eller så må den komme ut på andre siden. Dette betyr at 
+Vi har nå funnet sannsynlighetene for at en innkommende bølge enten reflekteres tilbake \eqref{eq:R} eller passerer gjennom potensialet og kommer ut på den andre siden \eqref{eq:T}. Den innkommende bølge må enten ble reflektert eller passere igjennom, så som en test på at det vi har regnet ut ikke er feil, så kan vi sjekke om sannsynlighetsfluksene tilsammen bllir 1:
 
 $$
 T + R \overset{!}{=} 1
@@ -353,20 +354,20 @@ $$
 T + R = \frac{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4} = \underline{\underline{1}}
 $$
 
-Vi har derfor vist at løsningen består en av de viktigste testene for refleksjons- og transmisjonkoeffisientene!
+Vi har derfor vist at løsningen består en av de viktigste testene for sannsynlighetsfluksene!\\
 
 \textit{Merknad: Mye av det jeg har gjort i denne deloppgaven skal være mulig å gjøre analytisk. Men siden jeg løste forrige deloppgave med sympy så fikk jeg svarene på slik en måte at det ble mer eller mindre å løse ting analytisk. Personer som løste 1a analytisk vil nok kunne løse 1b på samme måte. Jeg vet at noen har gjort dette. Men jeg er likevel sikker på at det jeg har skrevet er helt korrekt, bare på en litt mer komplisert form.}
 
 \newpage
 \subsection*{c)}
 
-Merk at jeg var dum og brukte $k = \sqrt{2E}$, for nå som vi skal se på den transmitterte fluksen til et vanlig $\delta$-potensial, brukes allerede $k = \frac{\sqrt{2E}}{V_0}$. Jeg velger derfor her heller å skrive $\kappa = \frac{\sqrt{2E}}{V_0}$. Den transmitterte fluken til ett $\delta$-potensial er derfor gitt som
+Merk at jeg brukte $k = \sqrt{2E}$, og nå som vi skal se på den transmitterte fluksen til et vanlig $\delta$-potensial, brukes allerede $k = \frac{\sqrt{2E}}{V_0}$. Jeg velger derfor her heller å skrive $\kappa = \frac{\sqrt{2E}}{V_0}$. Den transmitterte fluken til ett $\delta$-potensial er derfor gitt som
 
 $$
 T = \frac{\kappa^2}{1 + \kappa^2}
 $$
 
-Vi kan plotte denne transmitterings fluksen mot den for det dobble $\delta$-potensialet:
+Vi kan plotte sannsynlighetsfluksen for et enkelt $\delta$-potensial mot den for det dobble $\delta$-potensialet:
 
 \begin{figure}[H]
 \centering
@@ -385,7 +386,7 @@ Vi kan plotte denne transmitterings fluksen mot den for det dobble $\delta$-pote
 \end{figure}
 
 
-Vi kan se at det er enkelte steder hvor det transmitteres mer ved et dobbelt potensial enn ved et enkelt. Vi ønsker å se litt nærmere på når dette skjer. La oss ta en liten titt på \ref{fig:TE}. Vi kan se at $T = 1$ for energiene $E \approx 0.67$, $E \approx 3.25$ og $E \approx 8.22$. La oss plotte $|\psi|^2$ for området i mellom $\delta$-funksjonene:
+Vi kan se at det er enkelte steder hvor det transmitteres mer ved et dobbelt potensial enn ved et enkelt. Vi ønsker å se litt nærmere på når dette skjer. La oss ta en liten titt på \ref{fig:TE}. Vi kan se at for $V_0 = q_0$ får vi $T = 1$ for energiene $E \approx 0.67$, $E \approx 3.25$ og $E \approx 8.22$. La oss plotte $|\psi|^2$ for området i mellom $\delta$-funksjonene (område $II$):
 
 \begin{figure}[H]
 \centering
@@ -393,10 +394,10 @@ Vi kan se at det er enkelte steder hvor det transmitteres mer ved et dobbelt pot
 \caption{Vi ser at for disse energiene er bølgene i område $II$ stående bølger med $n+1$ bølgetopper.}
 \end{figure}
 
-Det ser ut som om når den transmitterte fluksen nærmer seg 1, så er det stående bølger i område $II$. Det kan se ut som ved enkelte verdier av $q_0$,$E$ og $V_0$ oppstår disse stående bølgene. Men får da konstruktiv resonnans. Dette kan virke som denne resonnasen forusaker en høyere transmisjonsfluks. Dette er noe som ikke oppstår ved en enkel $\delta$-funksjon, og vi får derfor en høyere transmittert fluks igjennom det doble $\delta$-potensialet.\\
+Det ser ut som om når den transmitterte fluksen nærmer seg 1, så er det stående bølger i område $II$. Det kan se ut som ved enkelte verdier av $q_0$,$E$ og $V_0$ oppstår disse stående bølgene, og de får konstruktiv resonnans. Det kan virke som denne resonnasen forutsaker en høyere transmisjonsfluks. Dette er noe som ikke oppstår ved en enkel $\delta$-funksjon, og vi får derfor en høyere transmittert fluks igjennom det doble $\delta$-potensialet.\\
 
 
-Vi kan sjekke hvilke verdier for $q_0$ som gir størst transmisjon for $E = V_0 = 1$. Her blir
+Vi kan også sjekke hvilke verdier for $q_0$ som gir størst transmisjon for $E = V_0 = 1$. Her blir
 
 $$
 T(q_0) = \frac{4}{4\sqrt{2}\sin(4\sqrt{2} q_0) + 2\cos(4\sqrt{2} q_0)(2 - 1)+4 +4 + 2}
@@ -410,11 +411,36 @@ $$
 
 Dette gir oss at:
 
-$$
-q_0 = \frac{n\pi - \arctan(\sqrt{2}}{2\sqrt{2}}, \qquad n= 0,1,2,...
-$$
+\begin{equation}
+q_0 = \frac{n\pi - \arctan(\sqrt{2})}{2\sqrt{2}}, \qquad n= 1,2,3,...
+\label{eq:optimalq0}
+\end{equation}
 
-Dette er altså den sperasjonen av $\delta$-funksjonene som gir høyest transmisjon.
+
+Dette er altså den sperasjonen av $\delta$-funksjonene som gir høyest transmisjon. Vi kan sjekke om vi får stående bølger i område $II$, som antatt over:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.3\textwidth}
+\centering
+\includegraphics[width = \textwidth]{psin1.png}
+\caption{$|\psi|^2$ i område $II$ når $E = V_0 = 1$ og \eqref{eq:optimalq0} regnet ut med $n=1$}
+\end{subfigure}
+~
+\begin{subfigure}{0.3\textwidth}
+\centering
+\includegraphics[width = \textwidth]{psin2.png}
+\caption{$|\psi|^2$ i område $II$ når $E = V_0 = 1$ og \eqref{eq:optimalq0} regnet ut med $n=2$}
+\end{subfigure}
+~
+\begin{subfigure}{0.3\textwidth}
+\centering
+\includegraphics[width = \textwidth]{psin3.png}
+\caption{$|\psi|^2$ i område $II$ når $E = V_0 = 1$ og \eqref{eq:optimalq0} regnet ut med $n=3$}
+\end{subfigure}
+\end{figure}
+
+Som vi ser i figuren over får vi den samme oppførselen i område $II$, noe som peker mot at det nettopp er disse stående bølgene som gir en så høy transmittert fluks for det doble potensialet.
 
 
 \section{Oppgave 2)}
@@ -440,7 +466,7 @@ $$
 \nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
 $$
 
-Vi skal se på tilfelle hvor potensialet er det for en 2 dimensjonal harmonisk osillator:
+Vi skal se på tilfelle hvor potensialet er det for en 2 dimensjonal harmonisk oscillator:
 
 $$
 V(x,y) = \frac{1}{2}m\omega^2(x^2 + y^2)
@@ -461,7 +487,7 @@ $$
 \psi(x,y) = X(x)Y(y)
 $$
 
-Vi kan sette dette inn i \ref{eq:2dSch}
+Vi kan sette dette inn i \eqref{eq:2dSch}
 
 $$
 -\frac{\hbar^2}{2m}\left(\frac{\partial^2 XY}{\partial x^2} + \frac{\partial^2 XY}{\partial y^2}\right) + \frac{1}{2}m\omega^2(x^2 + y^2)XY = EXY
@@ -506,13 +532,13 @@ $$
 -\frac{\hbar^2}{2m}\frac{\partial^2 Y(y)}{\partial y^2} + \frac{1}{2}m\omega^2y^2Y(y) = E_yY(y)
 $$
 
-Det vi nå kan se at de to differensiallikningene vi har fått er 2 likninger som tilsvarer Schrödinger likninger for harmoniske osillatorer i $x$- og $y$-retning. Dette betyr at den 2 dimensjonale harmoniske osillatoren bare består av 2 lineært uavhengige harmoniske osillatorer, én i $x$-retning og én i $y$-retning! $E_x$ og $E_y$ forholdsvis energien til den harmoniske osillatoren i $x$- og $y$-retningen. Fra \ref{eq:ExEy} ser vi at
+Det vi nå kan se at de to differensiallikningene vi har fått er 2 likninger som tilsvarer Schrödinger likninger for harmoniske oscillatorer i $x$- og $y$-retning. Dette betyr at den 2 dimensjonale harmoniske oscillatoren bare består av 2 lineært uavhengige harmoniske oscillatorer, én i $x$-retning og én i $y$-retning! $E_x$ og $E_y$ forholdsvis energiene til de harmoniske oscillatorene i $x$- og $y$-retningen. Fra \eqref{eq:ExEy} ser vi at
 
 $$
 E = E_x +E_y
 $$
 
-Siden vi kan skrive $\psi = X_i(x)Y_j(y)$, hvor $i$ og $j$ er kvantetall assosiert med de harmoniske osillatorene i de 2 retningene, og $E = E_x + E_y$, så betyr det at det er flere konfigurasjoner av disse kvantetallene kan gi samme energi $E$. Dette betyr at dette systemet er \textit{degenerert}.
+Siden vi kan skrive $\psi = X_i(x)Y_j(y)$, hvor $i$ og $j$ er kvantetall assosiert med de harmoniske oscillatorene i de 2 retningene, og $E = E_x + E_y$, så betyr det at det er flere konfigurasjoner av disse kvantetallene kan gi samme energi $E$. Dette betyr at dette systemet er \textit{degenerert}.
 
 \newpage
 
@@ -529,13 +555,13 @@ D =
 \end{pmatrix}
 \end{equation}
 
-Dette er en operator som kan brukes på tilstandene til et system som så gir de faktiske målingene. Tilstandene til systemet er gitt som egenvektorene til $D$, mens målingene er gitt som egenverdiene til $D$. Vi bruker Dirac-notasjon, som gjør at dette skrives  som \textit{keter}:
+Dette er en operator som kan brukes på tilstandene til et system som så gir de faktiske målingene. Tilstandene til observablen er gitt som egenvektorene til $D$, mens målingene er gitt som egenverdiene til $D$. Vi bruker Dirac-notasjon, som gjør at dette skrives  som \textit{keter}:
 
 $$
 \hat{D}|d_{\pm}\rangle = d_{\pm}|d_{\pm}\rangle
 $$
 
-Her er $|d_{\pm}\rangle$ de to tilstandsegenvektorene, mens $d_{\pm}$ er målingsegenverdiene. Dette kan være litt forvirrende notasjon, men egenvektorene er alltid inni en \textit{ket}, $|$ $\rangle$(eller senere inni en \textit{bra} $\langle$ $|$, mens egenverdier står som  'frittstående' tall\\
+Her er $|d_{\pm}\rangle$ de to tilstandsegenvektorene, og $d_{\pm}$ er målingsegenverdiene. Dette kan være litt forvirrende notasjon, men egenvektorene er alltid inni en \textit{ket}, $|$ $\rangle$(eller senere inni en \textit{bra} $\langle$ $|$, mens egenverdier står som  'frittstående' tall\\
 
 Vi starter med å finne egenverdien. Dette gjøres på standardmetoden:
 
@@ -631,9 +657,9 @@ H_1 =
 \end{pmatrix}
 $$
 
-Vi ønsker å finne tilstandene og energiene til disse to systemene. Akkurat som i forrige deloppgave er dette gitt ved egenvektorene og egenverdiene til de to operatorene. \\
+Vi ønsker å finne tilstandene og energiene til disse to systemene. Akkurat som i forrige deloppgave er dette gitt ved egenvektorene og egenverdiene til de to operatorene. Egenverdiene er energiene til systemet og kalles derfor $E$, og egenvektorene er de tilhørende tilstandene som kalles $|h_{ab}\rangle$, hvor $a$ indikerer hvile Hamiltonoperator den tilhører, og $b$ indikerer hvilke av de to tilstandene den beskriver.\\
 
-\textbf{$\underline{H_0}$}: Vi skal første finne energiene til $H_0$. Dette er egenvektorene $E_{00}$ og $E_{01}$:
+\textbf{$\underline{H_0}$}: Vi skal første finne energiene til $H_0$. Dette er egenverdiene $E_{00}$ og $E_{01}$:
 
 $$
 \begin{vmatrix}
@@ -698,6 +724,8 @@ og
 \label{eq:h11}
 \end{equation}\\
 
+\newpage
+
 Vi er nå i stand til å finne $\Psi$. I følge oppgaven starter systemet i grunntilstanden. Dette vil si tilstanden som tilsvarer den laveste energien til $H_0$, så:
 
 $$
@@ -707,7 +735,7 @@ $$
 \end{pmatrix}
 $$
 
-Denne er for øyeblikket tidsuavhengig. Men ved tiden $t_D$ er vi i regime til $H_1$, det betyr at vi må beskrive $\Psi_0(0)$ i $H_1$-system, m.a.o. som en lineærkombinasjon av egenvektorene til $H_1$, $|h_{10}\rangle$ og $|h_{11}\rangle$. Siden disse er det samme som basisvektorene til $\mathbb{R}^2$ ($\hat{e}_0$ og $\hat{e}_1$), så er dette en enkel oppgave:
+Denne er for øyeblikket tidsuavhengig. Men ved tiden $t_D$ er vi i regime til $H_1$, det betyr at vi må beskrive $\Psi_0(0)$ i $H_1$-system, m.a.o. som en lineærkombinasjon av egenvektorene til $H_1$, $|h_{10}\rangle$ og $|h_{11}\rangle$. Siden disse er de samme som basisvektorene til $\mathbb{R}^2$ ($\hat{e}_0$ og $\hat{e}_1$), så er dette en enkel oppgave:
 
 $$
 \Psi_0(t) = \frac{1}{\sqrt{5}}(2|h_{10}\rangle + |h_{11}\rangle)
@@ -719,7 +747,7 @@ $$
 \Psi(t) = \frac{1}{\sqrt{5}}\left[2|h_{10}\rangle e^{-it} + |h_{10}\rangle e^{-3it}\right]
 $$
 
-Vi har nesten funnet $\Psi(t)$, men det er en ting til vi må ta hensyn til. Denne tidsutviklingen gjelder bare fra vi skrur på $H_1$ ved $t_1$. Vi er derfor interessert i hvordan systemet utvikler seg i en tid mellom $t_1$ og når vi observerer systemet ved tiden $t_D$. Tiden systemet har utviklet seg på er derfor $t = T_D - t_1$. F.eks ser vi at om vi observerer systemet akkurat i $t_D = t_1$ forsvinner tidsavhengigheten og vi sitter igjen med grunntilstanden, akkurat som vi ønsker. Den endelige bølgefunksjonen er derfor:
+Vi har nesten funnet $\Psi(t)$, men det er en ting til vi må ta hensyn til. Denne tidsutviklingen gjelder fra vi skrur på $H_1$ ved $t_1$. Vi er derfor interessert i hvordan systemet utvikler seg i en tid mellom $t_1$ og når vi observerer systemet ved tiden $t_D$. Tiden systemet har utviklet seg på er derfor $t = t_D - t_1$. F.eks ser vi at om vi observerer systemet akkurat i $t_D = t_1$ forsvinner tidsavhengigheten og vi sitter igjen med grunntilstanden, akkurat som vi ønsker. Den endelige bølgefunksjonen er derfor:
 
 \begin{equation}
 \Psi(t) = \frac{1}{\sqrt{5}}\left[2|h_{10}\rangle e^{-i(t_D - t_1)} + |h_{10}\rangle e^{-3i(t_D - t_1)}\right]
@@ -807,11 +835,11 @@ Og finner det endelig svaret:
 \label{eq:forventningD}
 \end{equation}
 
-Vi kan se at forventingsverdien til $D$ osillerer i tid, men en frekvents $f = \frac{\omega}{2\pi} = \frac{2}{2\pi} = \frac{1}{\pi}$. Dette er verdien man forventer fra observablen $D$ om man observerer den gjentatte ganger.
+Vi kan se at forventingsverdien til $D$ oscillerer i tid, men en frekvents $f = \frac{\omega}{2\pi} = \frac{2}{2\pi} = \frac{1}{\pi}$. Dette er verdien man forventer fra observablen $D$ om man observerer den gjentatte ganger.
 
 \subsection*{c)}
 
-Siden vi i denne oppgaven bare er interessert i energiene i $H_1$-regimet, så skrier jeg at $E_0 = E_{10}$ og $E_1 = E_{11}$.\\
+Siden vi i denne oppgaven bare er interessert i energiene i $H_1$-regimet, så forenkler jeg notasjonen min og skriver bare $E_0 = E_{10}$ og $E_1 = E_{11}$.\\
 
 Vi skal her finne sannsynlighet for at om man observerer $D$, så energien og deretter $D$ igjen, så vil man måle samme verdi for $D$. Nedenfor kan vi se alle de forskjellige muligheten vi kan måle:
 
@@ -821,7 +849,7 @@ Vi skal her finne sannsynlighet for at om man observerer $D$, så energien og de
 \caption{Et valgtre som viser alle de mulige utfallene vi kan observere.}
 \end{figure}
 
-Vi stater med grunntilstanden $\Psi_0$, vi observerer deretter enten $d_+$ eller $d_-$. Bølgelikningen kollapser så til tilstanden som tilsvarer denne målingen ($|d_+\rangle$ eller $|d_-\rangle$). Vi observerer så energien, og måler enten $E_0$ eller $E_1$, og bølgefunksjonen kollapser til forholdsvis $|h_{10}\rangle$ eller $|h_{11}\rangle$. I den lange utregningen under bryter jeg min egen notasjon, og skriver $|E_0\rangle \equiv |h_{10}\rangle $ og $|E_1\rangle \equiv |h_{11}\rangle $, dette er for å gjøre det lettere å lese og skrive, så beklager om dette skaper forvirring, men nå er du advart! Vi gjør så en siste måling og får enten $d_+$ eller $d_-$.\\
+Vi stater med tilstanden $\Psi(t)$, vi observerer deretter enten $d_+$ eller $d_-$. Bølgelikningen kollapser så til tilstanden som tilsvarer denne målingen ($|d_+\rangle$ eller $|d_-\rangle$). Vi observerer så energien, og måler enten $E_0$ eller $E_1$, og bølgefunksjonen kollapser til forholdsvis $|h_{10}\rangle$ eller $|h_{11}\rangle$. I den lange utregningen under bryter jeg min egen notasjon, og skriver $|E_0\rangle \equiv |h_{10}\rangle $ og $|E_1\rangle \equiv |h_{11}\rangle $, dette er for å gjøre det lettere å lese og skrive, så beklager om dette skaper forvirring, men nå er du advart! Vi gjør så en siste måling og får enten $d_+$ eller $d_-$.\\
 
 Sannsynligheten for å gjøre en viss måling av en tilstand $| f_n\rangle$ når vi har en tilstand $|\psi_n\rangle$ er gitt ved:
 
@@ -829,7 +857,7 @@ $$
 |c_n|^2 = |\langle f_n|\psi_n\rangle|^2
 $$
 
-(Vi har bare reelle tilstander, så vi kan fjerne $|$ $|$ for alle sannsynligheten, annet enn de for $\Psi(t)$)\\
+(Vi har bare reelle tilstander, så vi kan fjerne $|$ $|$ for alle sannsynligheten, bortsett fra de med $\Psi(t)$)\\
 
 Sannsynligheten for å måle samme $D$ begge gangene er
 
@@ -838,7 +866,7 @@ P(samme) = P(d_+ \cap d_+) + P(d_- \cap d_-)
 \label{eq:Psamme}
 \end{equation}
 
-Vi finner så at leddene er gitt ved:
+Vi finner fra vanlig sannsynlighetsregning at leddene er gitt ved:
 
 $$
 P(d_+ \cap d_+) = P(d_+)P(d_+|d_+)
@@ -850,7 +878,7 @@ $$
 P(d_+|d_+) = \langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2
 $$
 
-$\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2$ er sannsynligheten for at vi først måler $E_0$ så $d_+$, og $\langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2$ er sannsynligheten for at vi måler $E_1$ så $d_+$. 
+$\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2$ er sannsynligheten for at vi først måler $E_0$ så $d_+$, og $\langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2$ er sannsynligheten for at vi måler $E_1$ så $d_+$. \\
 
 $P(d_+)$ er gitt som:
 
@@ -931,8 +959,9 @@ $$
 $$
 \langle d_+|E_1\rangle^2 = \langle E_1|d_+\rangle^2 ,\qquad \langle d_-|E_1\rangle^2 = \langle E_1|d_-\rangle^2
 $$
+\newpage
 
-Vi regner ikke ut $\langle d_{\pm}|\Psi(t)\rangle$ enda, av grunner vi skal se senere! Vi kan nå regne ut leddene i sannsynligheten:
+Vi regner ikke ut $\langle d_{\pm}|\Psi(t)\rangle$ enda, av grunner vi skal se snart! Vi kan nå regne ut leddene i sannsynligheten:
 
 $$
 P(d_+ \cap d_+) = |\langle d_+|\Psi\rangle|^2\left[\langle E_0|d_+\rangle^2\langle d_+|E_0\rangle^2 + \langle E_1|d_+\rangle^2\langle d_+|E_1\rangle^2\right]
@@ -978,9 +1007,9 @@ Så da har vi funnet at sannsynligheten for å måle samme verdi for $D$ ved to 
 
 \subsection*{d)}
 
-Fungerer maskinen skal vi kunne forvente å måte $\langle D\rangle$ gitt i \ref{eq:forventningD}. Men forventningsverdien til observablen $D$  er avhenging av energiene til $H_1$. Skrur maskinen seg av og systemet går over i regimet til $H_1$, så er tilstandene beskrevet av $|h_{00}\rangle$ og $|h_{01}\rangle$ og deres tilhørende energier $E_{00}$ og $E_{01}$. Dette betyr at forventningsverdien til $D$ ikke lenger er det samme.\\
+Fungerer maskinen skal vi kunne forvente å måte $\langle D\rangle$ gitt i \eqref{eq:forventningD}. Men forventningsverdien til observablen $D$  er avhenging av energiene til $H_1$. Skrur maskinen seg av og systemet går over i regimet til $H_1$, så er tilstandene beskrevet av $|h_{00}\rangle$ og $|h_{01}\rangle$ og deres tilhørende energier $E_{00}$ og $E_{01}$. Dette betyr at forventningsverdien til $D$ ikke lenger er det samme.\\
 
-Men hvordan kan vi faktisk sjekke dette? Merk at i \ref{eq:forventningD} hadde vi et $\cos(2(t_D - t_1)$-ledd. Dette leddet bestemmer hvordan forventningsverdien til $D$ varierer med tiden. Det er faktoren $2$ som bestemmer hvor fort disse verdiene varierer med tiden. Tar man nok målinger vil man kunne observere denne hastigheten. Denne hastigheten er, som nevnt over, bestemt av energiene til $H_1$, så når systemet går over i $H_0$ vil ikke denne hastigheten. Regner man litt på det kan man finne at forventningsverdien nå er avhengig av leddet $\cos(10(t_D - t_1)$. Så med andre ord oscillerer forventningsverdien 5 ganger raskere. Man kan derfor med nok målinger bestemme hvor raskt forventingsverdien oscillerer, og dermed finne om vi er i $H_1$ eller $H_0$, og derfor om maskinen har skrudd seg av.
+Men hvordan kan vi faktisk sjekke dette? Merk at i \eqref{eq:forventningD} hadde vi et $\cos(2(t_D - t_1)$-ledd. Dette leddet bestemmer hvordan forventningsverdien til $D$ varierer med tiden. Det er faktoren $2$ som bestemmer hvor fort disse verdiene varierer. Tar man nok målinger vil man kunne observere denne hastigheten. Denne hastigheten er, som nevnt over, bestemt av energiene til $H_1$, så når systemet går over i $H_0$ vil ikke denne hastigheten lenger være det samme. Regner man litt på det kan man finne at forventningsverdien nå er avhengig av leddet $\cos(10(t_D - t_1)$. Så med andre ord oscillerer forventningsverdien 5 ganger raskere. Man kan derfor med nok målinger bestemme hvor raskt forventingsverdien oscillerer, og dermed finne om vi er i $H_1$ eller $H_0$, og derfor om maskinen har skrudd seg av.
 
 \newpage
 
