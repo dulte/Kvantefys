@@ -41,7 +41,7 @@
 \lstset{showstringspaces=false}
 \lstset{showtabs=false}
 \lstset{breaklines}
-\title{FYS2140}
+\title{FYS2140 Hjemmeeksamen}
 \author{Kandidat nr. 15110}
 \begin{document}
 \maketitle
@@ -67,7 +67,7 @@ Dette gir oss en Schrödinger likning som ser slik ut:
 \label{eq:deltaSchr}
 \end{equation}
 
-Vi er interessert i å se på de ubunnede tilstandene, dette betyr at $E>0$. Generelt gir dette løsningen:
+Vi er interessert i å se på de ubundte tilstandene, dette betyr at $E>0$. Generelt gir dette løsningen:
 
 $$
 \psi(x) = 
@@ -211,7 +211,7 @@ Vi sitter da med de fire likningene for de fem ukjente:
 
 Hvor $\alpha = e^{-2ikq_0}$ og $\omega = \frac{2V_0}{ik}$.\\
 
-Det er fult mulig å løse dette analytisk, men etter mange forsøk og mange blindveier så ble jeg inspirert av noen andre til bare å løse dette ved hjep av \textit{sympy}, en symbolsk løser for python. Koden finnes her\ref{lst:solver}. Den ga dette resultatet:
+Det er fullt mulig å løse dette analytisk, men etter mange forsøk og mange blindveier, ble jeg inspirert av noen andre til å løse dette ved hjep av \textit{sympy}, en symbolsk løser for python. Koden finnes her (\ref{lst:solver}). Den ga dette resultatet:
 
 $$
 F = \frac{4A\alpha^2}{\alpha^2\omega^2 - 4\alpha^2\omega + 4\alpha^2 - \omega^2}
@@ -300,7 +300,7 @@ R(E,q_0,V_0) = \frac{V_0\left(\sqrt{2E}\cos(2\sqrt{E}q_0) + V_0\sin(2\sqrt{2E} q
 \end{equation}
 
 
-Vi ønsker så å gjøre det tilsvarende for transmisjonen gjennom det høyre potensialet. Dette måler sannsynligheten for at bølgen har gått igjennom hele potensialet for forsvinner mot høyre. Dette kan regnes ut som følger:
+Vi ønsker så å gjøre det tilsvarende for transmisjonen gjennom det høyre potensialet. Dette måler sannsynligheten for at bølgen har gått igjennom hele potensialet og forsvinner mot høyre. Dette kan regnes ut som følger:
 
 \begin{equation}
 T = \frac{|F|^2}{|A|^2}
@@ -324,7 +324,7 @@ Setter vi så inn $k = \sqrt{2E}$ finner vi transmisjonssannsynligheten som
 \begin{equation}
 T(E,q_0,V_0) = \frac{4E^2}{4\sqrt{2E}V_0^3\sin(4\sqrt{2E} q_0) + 2V_0^2\cos(4\sqrt{2E} q_0)(2E - V_0^2)+4E^2 +4EV_0^2 + 2V_0^4}
 \label{eq:T}
-\end{equation} 
+\end{equation} \\
 
 Vi har nå funnet sannsynlighetene for at en innkommende bølge enten reflekteres tilbake \eqref{eq:R} eller passerer gjennom potensialet og kommer ut på den andre siden \eqref{eq:T}. Den innkommende bølge må enten ble reflektert eller passere igjennom, så som en test på at det vi har regnet ut ikke er feil, så kan vi sjekke om sannsynlighetsfluksene tilsammen bllir 1:
 
@@ -356,7 +356,7 @@ $$
 
 Vi har derfor vist at løsningen består en av de viktigste testene for sannsynlighetsfluksene!\\
 
-\textit{Merknad: Mye av det jeg har gjort i denne deloppgaven skal være mulig å gjøre analytisk. Men siden jeg løste forrige deloppgave med sympy så fikk jeg svarene på slik en måte at det ble mer eller mindre å løse ting analytisk. Personer som løste 1a analytisk vil nok kunne løse 1b på samme måte. Jeg vet at noen har gjort dette. Men jeg er likevel sikker på at det jeg har skrevet er helt korrekt, bare på en litt mer komplisert form.}
+\textit{Merknad: Mye av det jeg har gjort i denne deloppgaven skal være mulig å gjøre analytisk. Siden jeg løste forrige deloppgave med sympy så fikk jeg svarene på slik en måte at det ble mer eller mindre umulig å løse ting analytisk. Personer som løste 1a analytisk vil nok kunne løse 1b på samme måte. Jeg vet at noen har gjort dette. Men jeg er likevel sikker på at det jeg har skrevet er helt korrekt, bare på en litt mer komplisert form.}
 
 \newpage
 \subsection*{c)}
@@ -561,7 +561,7 @@ $$
 \hat{D}|d_{\pm}\rangle = d_{\pm}|d_{\pm}\rangle
 $$
 
-Her er $|d_{\pm}\rangle$ de to tilstandsegenvektorene, og $d_{\pm}$ er målingsegenverdiene. Dette kan være litt forvirrende notasjon, men egenvektorene er alltid inni en \textit{ket}, $|$ $\rangle$(eller senere inni en \textit{bra} $\langle$ $|$, mens egenverdier står som  'frittstående' tall\\
+Her er $|d_{\pm}\rangle$ de to tilstandsegenvektorene, og $d_{\pm}$ er målingsegenverdiene. Dette kan være litt forvirrende notasjon, men egenvektorene er alltid inni en \textit{ket}, $|$ $\rangle$(eller senere inni en \textit{bra} $\langle$ $|$), mens egenverdier står som  'frittstående' tall\\
 
 Vi starter med å finne egenverdien. Dette gjøres på standardmetoden:
 
@@ -631,7 +631,7 @@ Og så normaliserer den og finner den andre egenvektoren:
 \label{eq:d-}
 \end{equation}
 
-Vi har da funnet de mulige målingene $d_{\pm} = 1 \pm \sqrt{2}$, med de tilsvarende tilstandene til systemet $|d_+\rangle$ og $|d_-\rangle$.
+Vi har da funnet de mulige målingene $d_{\pm} = 1 \pm \sqrt{2}$. Etter vi har observert en av disse kollapser bølgeligningen til en av de tilhørende tilstandene $|d_+\rangle$ og $|d_-\rangle$.
 
 \subsection*{b)}
 
@@ -657,7 +657,7 @@ H_1 =
 \end{pmatrix}
 $$
 
-Vi ønsker å finne tilstandene og energiene til disse to systemene. Akkurat som i forrige deloppgave er dette gitt ved egenvektorene og egenverdiene til de to operatorene. Egenverdiene er energiene til systemet og kalles derfor $E$, og egenvektorene er de tilhørende tilstandene som kalles $|h_{ab}\rangle$, hvor $a$ indikerer hvile Hamiltonoperator den tilhører, og $b$ indikerer hvilke av de to tilstandene den beskriver.\\
+Vi ønsker å finne tilstandene og energiene til disse to systemene. Akkurat som i forrige deloppgave er dette gitt ved egenvektorene og egenverdiene til de to operatorene. Egenverdiene er energiene til systemet og kalles derfor $E$, og egenvektorene er de tilhørende tilstandene som kalles $|h_{ab}\rangle$, hvor $a$ indikerer hvilke Hamiltonoperator den tilhører, og $b$ indikerer hvilke av de to tilstandene den beskriver.\\
 
 \textbf{$\underline{H_0}$}: Vi skal første finne energiene til $H_0$. Dette er egenverdiene $E_{00}$ og $E_{01}$:
 
@@ -1007,7 +1007,7 @@ Så da har vi funnet at sannsynligheten for å måle samme verdi for $D$ ved to 
 
 \subsection*{d)}
 
-Fungerer maskinen skal vi kunne forvente å måte $\langle D\rangle$ gitt i \eqref{eq:forventningD}. Men forventningsverdien til observablen $D$  er avhenging av energiene til $H_1$. Skrur maskinen seg av og systemet går over i regimet til $H_1$, så er tilstandene beskrevet av $|h_{00}\rangle$ og $|h_{01}\rangle$ og deres tilhørende energier $E_{00}$ og $E_{01}$. Dette betyr at forventningsverdien til $D$ ikke lenger er det samme.\\
+Fungerer maskinen skal vi kunne forvente å måle $\langle D\rangle$ gitt i \eqref{eq:forventningD}. Men forventningsverdien til observablen $D$  er avhenging av energiene til $H_1$. Skrur maskinen seg av og systemet går over i regimet til $H_1$, så er tilstandene beskrevet av $|h_{00}\rangle$ og $|h_{01}\rangle$ og deres tilhørende energier $E_{00}$ og $E_{01}$. Dette betyr at forventningsverdien til $D$ ikke lenger er det samme.\\
 
 Men hvordan kan vi faktisk sjekke dette? Merk at i \eqref{eq:forventningD} hadde vi et $\cos(2(t_D - t_1)$-ledd. Dette leddet bestemmer hvordan forventningsverdien til $D$ varierer med tiden. Det er faktoren $2$ som bestemmer hvor fort disse verdiene varierer. Tar man nok målinger vil man kunne observere denne hastigheten. Denne hastigheten er, som nevnt over, bestemt av energiene til $H_1$, så når systemet går over i $H_0$ vil ikke denne hastigheten lenger være det samme. Regner man litt på det kan man finne at forventningsverdien nå er avhengig av leddet $\cos(10(t_D - t_1)$. Så med andre ord oscillerer forventningsverdien 5 ganger raskere. Man kan derfor med nok målinger bestemme hvor raskt forventingsverdien oscillerer, og dermed finne om vi er i $H_1$ eller $H_0$, og derfor om maskinen har skrudd seg av.
 
